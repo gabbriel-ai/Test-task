@@ -92,10 +92,9 @@ void SyncContainers(std::vector<int>& vec, std::map<std::string, int>& mp) {
     }
   }
 
-  vec_values &= mp_values;
   vec.erase(std::remove_if(
                 vec.begin(), vec.end(),
-                [&vec_values](int value) { return !(vec_values.test(value)); }),
+                [&mp_values](int value) { return !(mp_values.test(value)); }),
             vec.end());
 }
 
